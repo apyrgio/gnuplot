@@ -1,0 +1,43 @@
+###################
+# General options #
+###################
+
+# output as png image
+#set terminal png
+# or per Wikipedia
+set terminal svg enhanced fname "Times" fsize 12
+#or this
+#set terminal png enhanced font "Times" 12
+
+# save file to "out.png"
+set output "out.svg"
+
+# Many samples for better quality
+set samples 1001
+
+# Thiner borders
+set border 31 linewidth .3 # thin border
+
+# nicer aspect ratio for image size
+set size 1,0.7
+
+###################
+# Content options #
+###################
+
+# graph title
+set title "RADOS write bandwidth"
+
+# y-axis grid
+set grid y
+
+# x-axis label
+set xlabel "Percentage (%)"
+
+# y-axis label
+set ylabel "Bandwith (MB/s)"
+
+plot "report-bench-write1.log" using 4:1 smooth sbezier with lines title "iodepth 1", \
+	"report-bench-write2.log" using 4:1 smooth sbezier with lines title "iodepth 4", \
+	"report-bench-write3.log" using 4:1 smooth sbezier with lines title "iodepth 8", \
+	"report-bench-write4.log" using 4:1 smooth sbezier with lines title "iodepth 16"
