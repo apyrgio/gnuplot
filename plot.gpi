@@ -28,8 +28,10 @@ set size 1,0.7
 # graph title
 set title "RADOS write bandwidth"
 
-# y-axis grid
-set grid y
+# only y-axis grid
+# set grid y
+
+set grid
 
 # x-axis label
 set xlabel "Percentage (%)"
@@ -37,7 +39,7 @@ set xlabel "Percentage (%)"
 # y-axis label
 set ylabel "Bandwith (MB/s)"
 
-plot "report-bench-write1.log" using 4:1 smooth sbezier with lines title "iodepth 1", \
-	"report-bench-write2.log" using 4:1 smooth sbezier with lines title "iodepth 4", \
-	"report-bench-write3.log" using 4:1 smooth sbezier with lines title "iodepth 8", \
-	"report-bench-write4.log" using 4:1 smooth sbezier with lines title "iodepth 16"
+plot "report-bench-write1.log" using 4:1:xtic(4) with linespoints title "iodepth 1", \
+	"report-bench-write2.log" using 4:1 with linespoints title "iodepth 4", \
+	"report-bench-write3.log" using 4:1 with linespoints title "iodepth 8", \
+	"report-bench-write4.log" using 4:1 with linespoints title "iodepth 16"
