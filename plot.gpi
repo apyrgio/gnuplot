@@ -5,28 +5,28 @@
 # output as png image
 #set terminal png
 # or per Wikipedia
-set terminal svg enhanced fname "Times" fsize 12
+#set terminal svg enhanced fname "Times" fsize 12
 #or this
-#set terminal png enhanced font "Times" 12
+set terminal pdf enhanced font "Times"
 
-# save file to "out.png"
-set output "out.svg"
+# save file to "out.pdf"
+set output "out/out.pdf"
 
 # Many samples for better quality
 set samples 1001
 
 # Thiner borders
-set border 31 linewidth .3 # thin border
+#set border 31 linewidth .3 # thin border
 
 # nicer aspect ratio for image size
-set size 1,0.7
+#set size 1,0.7
 
 ###################
 # Content options #
 ###################
 
 # graph title
-set title "RADOS write bandwidth"
+#set title "RADOS write bandwidth"
 
 # only y-axis grid
 # set grid y
@@ -34,12 +34,21 @@ set title "RADOS write bandwidth"
 set grid
 
 # x-axis label
-set xlabel "Percentage (%)"
+set xlabel "Block size (KB)"
 
 # y-axis label
-set ylabel "Bandwith (MB/s)"
+set ylabel "Bandwidth (MB/s)"
 
-plot "report-bench-write1.log" using 4:1:xtic(4) with linespoints title "iodepth 1", \
-	"report-bench-write2.log" using 4:1 with linespoints title "iodepth 4", \
-	"report-bench-write3.log" using 4:1 with linespoints title "iodepth 8", \
-	"report-bench-write4.log" using 4:1 with linespoints title "iodepth 16"
+#set logscale y
+
+plot \
+	"~/sosd/report-bench-read1.log" using 4:1:xtic(4) with linespoints title "sosd-iodepth-1", \
+	"~/sosd/report-bench-read2.log" using 4:1 with linespoints title "sosd-iodepth-2", \
+	"~/sosd/report-bench-read3.log" using 4:1 with linespoints title "sosd-iodepth-4", \
+	"~/sosd/report-bench-read4.log" using 4:1 with linespoints title "sosd-iodepth 8", \
+	"~/sosd/report-bench-read5.log" using 4:1 with linespoints title "sosd-iodepth 16", \
+	"~/cached/report-bench-read1.log" using 4:1:xtic(4) with linespoints title "cached-iodepth-1", \
+	"~/cached/report-bench-read2.log" using 4:1 with linespoints title "cached-iodepth-2", \
+	"~/cached/report-bench-read3.log" using 4:1 with linespoints title "cached-iodepth-4", \
+	"~/cached/report-bench-read4.log" using 4:1 with linespoints title "cached-iodepth 8", \
+	"~/cached/report-bench-read5.log" using 4:1 with linespoints title "cached-iodepth 16"
