@@ -9,8 +9,12 @@
 #or this
 set terminal pdf enhanced font "Times"
 
+# Project variables
+data="data"
+out="out"
+
 # save file to "out.pdf"
-set output "out/out.pdf"
+set output .out"/out.pdf"
 
 # Many samples for better quality
 set samples 1001
@@ -42,13 +46,13 @@ set ylabel "Bandwidth (MB/s)"
 #set logscale y
 
 plot \
-	"~/sosd/report-bench-read1.log" using 4:1:xtic(4) with linespoints title "sosd-iodepth-1", \
-	"~/sosd/report-bench-read2.log" using 4:1 with linespoints title "sosd-iodepth-2", \
-	"~/sosd/report-bench-read3.log" using 4:1 with linespoints title "sosd-iodepth-4", \
-	"~/sosd/report-bench-read4.log" using 4:1 with linespoints title "sosd-iodepth 8", \
-	"~/sosd/report-bench-read5.log" using 4:1 with linespoints title "sosd-iodepth 16", \
-	"~/cached/report-bench-read1.log" using 4:1:xtic(4) with linespoints title "cached-iodepth-1", \
-	"~/cached/report-bench-read2.log" using 4:1 with linespoints title "cached-iodepth-2", \
-	"~/cached/report-bench-read3.log" using 4:1 with linespoints title "cached-iodepth-4", \
-	"~/cached/report-bench-read4.log" using 4:1 with linespoints title "cached-iodepth 8", \
-	"~/cached/report-bench-read5.log" using 4:1 with linespoints title "cached-iodepth 16"
+	.data"/sosd/report-bench-read1.log" using 4:1:xtic(4) with linespoints title "sosd-iodepth-1", \
+	.data"/sosd/report-bench-read2.log" using 4:1 with linespoints title "sosd-iodepth-2", \
+	.data"/sosd/report-bench-read3.log" using 4:1 with linespoints title "sosd-iodepth-4", \
+	.data"/sosd/report-bench-read4.log" using 4:1 with linespoints title "sosd-iodepth 8", \
+	.data"/sosd/report-bench-read5.log" using 4:1 with linespoints title "sosd-iodepth 16", \
+	.data"/cached/report-bench-read1.log" using 4:1:xtic(4) with linespoints title "cached-iodepth-1", \
+	.data"/cached/report-bench-read2.log" using 4:1 with linespoints title "cached-iodepth-2", \
+	.data"/cached/report-bench-read3.log" using 4:1 with linespoints title "cached-iodepth-4", \
+	.data"/cached/report-bench-read4.log" using 4:1 with linespoints title "cached-iodepth 8", \
+	.data"/cached/report-bench-read5.log" using 4:1 with linespoints title "cached-iodepth 16"
