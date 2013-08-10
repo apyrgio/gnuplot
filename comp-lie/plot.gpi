@@ -46,11 +46,11 @@ set ylabel "Bandwidth (MB/s)"
 
 #set logscale y
 
-rep_read_cached(n) = sprintf("%s/cached/report-bench-read%d.log", data, n)
-rep_read_sosd(n) = sprintf("%s/sosd/report-bench-read%d.log", data, n)
+report(p, t, n) = sprintf("%s/%s/report-bench-%s%d.log", data, p, t, n)
+graph_title(p, n) = sprintf("%s-iodepth-%d", p, 4 + (n - 1) * 2)
 
 plot \
-for [i = 1:4] rep_read_cached(i) using 4:1:xtic(4) \
-	with linespoints title "sosd-iodepth-4", \
-for [i = 1:4] rep_read_sosd(i) using 4:1:xtic(4) \
-	with linespoints title "cached-iodepth-1"
+for [i = 1:4] report("cached", "write", i) using 4:1:xtic(4) \
+	with linespoints title graph_title("write", i), \
+for [i = 1:4] report("cached", "read", i) using 4:1:xtic(4) \
+	with linespoints title graph_title("read", i)
