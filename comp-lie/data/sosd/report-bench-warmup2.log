@@ -1,6 +1,6 @@
-# Bandwidth (MB/s)	IOPS	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
-  7.494		1918.467		8		4		4		32
-  14.988		1918.461		8		8		4		32
-  31.378		2008.166		8		16		4		32
-  47.272		1512.697		8		32		4		32
-  98.326		1573.220		8		64		4		32
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  8.450		2163.187		3693.521	8		4		4		64
+  16.107		2061.756		3875.371	8		8		4		64
+  29.877		1912.121		4176.130	8		16		4		64
+  60.297		1929.505		4132.829	8		32		4		64
+  105.355		1685.682		4730.896	8		64		4		64

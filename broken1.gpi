@@ -1,3 +1,4 @@
+set xlabel xlabel
 bm = 0.15
 lm = 0.12
 rm = 0.95
@@ -13,4 +14,3 @@ set lmargin at screen lm
 set rmargin at screen rm
 set bmargin at screen bm
 set tmargin at screen bm + size * (abs(y2-y1) / (abs(y2-y1) + abs(y4-y3) ) )#
-
