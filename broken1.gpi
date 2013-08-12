@@ -1,0 +1,16 @@
+bm = 0.15
+lm = 0.12
+rm = 0.95
+gap = 0.03
+size = 0.75
+y1 = 0.0; y2 = 1; y3 = 0; y4 = 1
+
+set multiplot
+set border 1+2+8
+set xtics nomirror
+set ytics nomirror
+set lmargin at screen lm
+set rmargin at screen rm
+set bmargin at screen bm
+set tmargin at screen bm + size * (abs(y2-y1) / (abs(y2-y1) + abs(y4-y3) ) )#
+
