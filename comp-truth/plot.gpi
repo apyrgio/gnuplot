@@ -1,0 +1,49 @@
+###################
+# General options #
+###################
+
+set terminal pdf enhanced font "Times"
+
+# General variables
+data = "data"
+folder = "`echo ${PWD##*/}`"
+out = sprintf("%s.pdf", folder)
+report(p, t, n) = sprintf("%s/%s/report-bench-%s%d.log", data, p, t, n)
+graph_title(p, n) = sprintf("%s-objectsX%d", p, 2 ** (n - 1))
+
+# Many samples for better quality
+set samples 1001
+
+#################
+# Graph options #
+#################
+
+# only y-axis grid
+set grid y
+
+set xtics ("1/64" 0, "1/32" 1, "1/16" 2, "1/8" 3)
+
+ylabel = "Bandwidth (MB/s)"
+xlabel = "Block size (KB)"
+
+# save file as "<current dir>.pdf"
+set output "bw-write-".out
+
+plot for [i = 1:4] report("cached", "write", i) using 1 \
+	with linespoints title graph_title("cached", i)
+
+set output "bw-read-".out
+
+plot for [i = 1:4] report("cached", "read", i) using 5:1:xtic(5) \
+	with linespoints title graph_title("cached", i)
+
+ylabel = "Latency (μs)"
+set output "lat-write-".out
+
+plot for [i = 1:4] report("cached", "write", i) using 5:3:xtic(5) \
+	with linespoints title graph_title("cached", i)
+
+set output "lat-read-".out
+
+plot for [i = 1:4] report("cached", "read", i) using 5:3:xtic(5) \
+	with linespoints title graph_title("cached", i)
