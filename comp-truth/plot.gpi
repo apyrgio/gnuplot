@@ -23,27 +23,42 @@ set grid y
 
 set xtics ("1/64" 0, "1/32" 1, "1/16" 2, "1/8" 3)
 
-ylabel = "Bandwidth (MB/s)"
-xlabel = "Block size (KB)"
+set ylabel "Bandwidth (MB/s)"
+set xlabel "Fractions of workload size"
 
 # save file as "<current dir>.pdf"
 set output "bw-write-".out
 
+# Argghh! Can't you be more automated? I will pour death and rage over each of
+# your stupid overfilled lines
+sosd_bw_write_line(x) = `awk 'NR == 4 {print $1}' data/sosd/report-bench-write1.log`
+sosd_bw_read_line(x) = `awk 'NR == 4 {print $1}' data/sosd/report-bench-read1.log`
+sosd_lat_write_line(x) = `awk 'NR == 4 {print $3}' data/sosd/report-bench-write1.log`
+sosd_lat_read_line(x) = `awk 'NR == 4 {print $3}' data/sosd/report-bench-read1.log`
+
+
 plot for [i = 1:4] report("cached", "write", i) using 1 \
-	with linespoints title graph_title("cached", i)
+	with linespoints title graph_title("cached", i), \
+	sosd_bw_write_line(x) with line title "sosd"
 
 set output "bw-read-".out
 
-plot for [i = 1:4] report("cached", "read", i) using 5:1:xtic(5) \
-	with linespoints title graph_title("cached", i)
+plot for [i = 1:4] report("cached", "read", i) using 1 \
+	with linespoints title graph_title("cached", i), \
+	sosd_bw_read_line(x) with line title "sosd"
 
-ylabel = "Latency (μs)"
+set ylabel "Latency (μs)"
+
 set output "lat-write-".out
 
-plot for [i = 1:4] report("cached", "write", i) using 5:3:xtic(5) \
-	with linespoints title graph_title("cached", i)
+plot for [i = 1:4] report("cached", "write", i) using 3 \
+	with linespoints title graph_title("cached", i), \
+	sosd_lat_write_line(x) with line title "sosd"
+
 
 set output "lat-read-".out
 
-plot for [i = 1:4] report("cached", "read", i) using 5:3:xtic(5) \
-	with linespoints title graph_title("cached", i)
+plot for [i = 1:4] report("cached", "read", i) using 3 \
+	with linespoints title graph_title("cached", i), \
+	sosd_lat_read_line(x) with line title "sosd"
+
