@@ -1,0 +1,38 @@
+###################
+# General options #
+###################
+
+set terminal pdf enhanced font "Times"
+
+# General variables
+data = "data"
+folder = "`echo ${PWD##*/}`"
+out = sprintf("%s.pdf", folder)
+report(p, t, n) = sprintf("%s/%s/report-bench-%s%s.log", data, p, t, n)
+graph_title(p, n) = sprintf("%s-threads%s", p, n)
+
+# Many samples for better quality
+set samples 1001
+
+#################
+# Graph options #
+#################
+
+# only y-axis grid
+set grid y
+
+set ylabel "Bandwidth (MB/s)"
+set xlabel "Parallel requests"
+
+# save file as "<current dir>.pdf"
+set output "bw-write-".out
+
+plot for [i in "1 2 3 4 5 8 16"] report("cached", "write", i) using 4:1:xtic(4) \
+	with linespoints title graph_title("cached", i)
+
+set ylabel "Latency (μs)"
+
+set output "lat-write-".out
+
+plot for [i in "1 2 3 4 5 8 16"] report("cached", "write", i) using 4:3:xtic(4) \
+	with linespoints title graph_title("cached", i)

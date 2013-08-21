@@ -1,0 +1,8 @@
+# Max requests: 2097152, Received requests: 2097152, 
+# Nr. of intervals: 1, Interval: 0, 
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  361.334		92501.519		9.829	1		4		4		8192
+  550.785		141000.864		12.486	2		4		4		8192
+  630.369		161374.497		23.155	4		4		4		8192
+  713.789		182729.903		42.432	8		4		4		8192
+  642.186		164399.623		95.608	16		4		4		8192
