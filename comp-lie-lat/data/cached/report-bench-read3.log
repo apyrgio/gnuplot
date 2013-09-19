@@ -1,6 +1,0 @@
-# Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
-  27.555	12		4		4		1024
-  26.712	12		8		4		2048
-  24.424	12		16		4		4096
-  42.360	12		32		4		8192
-  81.047	12		64		4		16384

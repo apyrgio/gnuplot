@@ -1,6 +1,0 @@
-# Bandwidth (MB/s)	IOPS	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
-  7.788		1993.682		8		4		4		32
-  16.375		2095.969		8		8		4		32
-  23.090		1477.781		8		16		4		32
-  38.904		1244.943		8		32		4		32
-  63.825		1021.204		8		64		4		32

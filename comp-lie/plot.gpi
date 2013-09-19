@@ -5,9 +5,9 @@
 set terminal pdf enhanced font "Times"
 
 # General variables
-data = "data"
+data = "data5"
 folder = "`echo ${PWD##*/}`"
-out = sprintf("%s.pdf", folder)
+out = sprintf("5%s.pdf", folder)
 report(p, t, n) = sprintf("%s/%s/report-bench-%s%d.log", data, p, t, n)
 graph_title(p, n) = sprintf("%s-iodepth-%d", p, 4 + (n - 1) * 4)
 
@@ -34,7 +34,7 @@ plot for [i = 1:4] report("sosd", "write", i) using 5:1:xtic(5) \
 
 load "../broken2.gpi"
 
-plot for [i = 1:4] report("cached", "write", i) using 5:1:xtic(5) \
+plot for [i = 1:4] report("cached", "write", i) using 4:1:xtic(4) \
 	with linespoints title graph_title("cached", i)
 
 load "../broken3.gpi"
@@ -48,10 +48,11 @@ plot for [i = 1:4] report("sosd", "read", i) using 5:1:xtic(5) \
 
 load "../broken2.gpi"
 
-plot for [i = 1:4] report("cached", "read", i) using 5:1:xtic(5) \
+plot for [i = 1:4] report("cached", "read", i) using 4:1:xtic(4) \
 	with linespoints title graph_title("cached", i)
 
 load "../broken3.gpi"
+exit
 
 ylabel = "Latency (μs)"
 set output "lat-write-".out
