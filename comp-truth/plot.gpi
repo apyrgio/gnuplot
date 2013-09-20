@@ -21,10 +21,12 @@ set samples 1001
 # only y-axis grid
 set grid y
 
-set xtics ("1/64" 0, "1/32" 1, "1/16" 2, "1/8" 3)
+#set xtics ("1/64" 0, "1/32" 1, "1/16" 2, "1/8" 3)
+#set xtics ("5" 0, "10" 1, "15" 2, "20" 3, "25" 4, "30" 5, "35" 6, "40" 7)
+#"45" 8, "50" 9)
 
 set ylabel "Bandwidth (MB/s)"
-set xlabel "Fractions of workload size"
+set xlabel "Workload percentage (%)"
 
 # save file as "<current dir>.pdf"
 set output "bw-write-".out
@@ -36,29 +38,23 @@ sosd_bw_read_line(x) = `awk 'NR == 4 {print $1}' data/sosd/report-bench-read1.lo
 sosd_lat_write_line(x) = `awk 'NR == 4 {print $3}' data/sosd/report-bench-write1.log`
 sosd_lat_read_line(x) = `awk 'NR == 4 {print $3}' data/sosd/report-bench-read1.log`
 
-
-plot for [i = 1:4] report("cached", "write", i) using 1 \
-	with linespoints title graph_title("cached", i), \
+set logscale y
+plot report("cached", "write", 1) using 1:2:xtic(1) \
+	with linespoints title "cached-unlimited", \
+	report("cached", "write", 2) using 1:2 \
+	with linespoints title "cached-limited", \
+	report("cached", "write", 3) using 1:2 \
+	with linespoints title "cached-writethrough", \
 	sosd_bw_write_line(x) with line title "sosd"
-
-set output "bw-read-".out
-
-plot for [i = 1:4] report("cached", "read", i) using 1 \
-	with linespoints title graph_title("cached", i), \
-	sosd_bw_read_line(x) with line title "sosd"
 
 set ylabel "Latency (μs)"
 
 set output "lat-write-".out
 
-plot for [i = 1:4] report("cached", "write", i) using 3 \
-	with linespoints title graph_title("cached", i), \
+plot report("cached", "write", 1) using 1:4:xtic(1) \
+	with linespoints title "cached-unlimited", \
+	report("cached", "write", 2) using 1:4 \
+	with linespoints title "cached-limited", \
+	report("cached", "write", 3) using 1:4 \
+	with linespoints title "cached-writethrough", \
 	sosd_lat_write_line(x) with line title "sosd"
-
-
-set output "lat-read-".out
-
-plot for [i = 1:4] report("cached", "read", i) using 3 \
-	with linespoints title graph_title("cached", i), \
-	sosd_lat_read_line(x) with line title "sosd"
-
