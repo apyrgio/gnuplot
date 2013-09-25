@@ -1,0 +1,54 @@
+###################
+# General options #
+###################
+
+set terminal pdf enhanced font "Times"
+
+# General variables
+data = "data"
+folder = "`echo ${PWD##*/}`"
+out = sprintf("%s.pdf", folder)
+report(p, t, n) = sprintf("%s/%s/report-bench-%s%d.log", data, p, t, n)
+graph_title(p, n) = sprintf("%s-threads%d", p, n)
+
+# Many samples for better quality
+set samples 1001
+
+#################
+# Graph options #
+#################
+
+set output out
+set style data histogram
+set style histogram gap 1
+set style fill solid border -1
+#set style fill pattern
+
+set ylabel "Bandwidth (KB/s)"
+
+# only y-axis grid
+set grid y
+set grid mxtics
+set xtics ("write" 0, "read" 1)
+set xrange[-1:3]
+
+set output "bw-".out
+
+plot report("sosd", "write", 12) using 1 title "sosd", \
+	report("cached", "write", 12) using 1 title "cached-vast", \
+	report("cached", "write", 22) using 1 title "cached-unlimited", \
+	report("cached", "write", 32) using 1 title "cached-limited", \
+	report("cached", "write", 42) using 1 title "page-cache", \
+	report("cached", "write", 52) using 1 title "cached-writethrough"
+
+set output "lat-".out
+set ylabel "Latency (ms)"
+set xlabel "Number of objects"
+set xrange[-1:2]
+
+plot report("sosd", "write", 12) using 3 title "sosd", \
+	report("cached", "write", 12) using 3 title "cached-vast", \
+	report("cached", "write", 22) using 3 title "cached-unlimited", \
+	report("cached", "write", 32) using 3 title "cached-limited", \
+	report("cached", "write", 42) using 3 title "page-cache", \
+	report("cached", "write", 52) using 3 title "cached-writethrough"

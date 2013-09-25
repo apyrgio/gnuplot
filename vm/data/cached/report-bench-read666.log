@@ -1,0 +1,5 @@
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  12952		bla		4.93	16		4		4		4096
+  86975		bla		732.06	16		4		4		4096
+  14897		bla		4.29	16		4		4		4096

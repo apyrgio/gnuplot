@@ -1,0 +1,3 @@
+# For sosd
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  13394		bla		4.77	16		4		4		4096

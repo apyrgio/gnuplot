@@ -1,0 +1,4 @@
+# cached-writethrough
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  6610		bla		9.66	16		4		4		4096
+  14897		bla		4.29	16		4		4		4096

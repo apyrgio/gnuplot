@@ -1,0 +1,85 @@
+# cached-writeback-vast
+# Nr. of intervals: 1, Interval: 0, 
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  25645		bla		2.49	16		4		4		4096
+# cached-writeback-unlimited
+# Nr. of intervals: 1, Interval: 0, 
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  13066		bla		4.89	16		4		4		4096
+# cached-writeback-limited
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  12952		bla		4.93	16		4		4		4096
+  12952		bla		4.93	16		4		4		4096
+# page-cache
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  86975		bla		732.06	16		4		4		4096
+  86975		bla		732.06	16		4		4		4096
+# cached-writethrough
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  14897		bla		4.29	16		4		4		4096
+  14897		bla		4.29	16		4		4		4096
+# For cached-writeback-vast
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  24855		bla		2.52	16		4		4		4096
+  24855		bla		2.52	16		4		4		4096
+# For cached-writeback-unlimited
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+ 14004		bla		4,56	16		4		4		4096
+ 14004		bla		4,56	16		4		4		4096
+# For cached-writeback-limited
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  23975		bla		2.6	16		4		4		4096
+  23975		bla		2.6	16		4		4		4096
+# For page-cache
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  93635		bla		0.683	16		4		4		4096
+  93635		bla		0.683	16		4		4		4096
+# For cached-writethrough
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  6610		bla		9.66	16		4		4		4096
+  6610		bla		9.66	16		4		4		4096
+# cached-writeback-vast
+# Nr. of intervals: 1, Interval: 0, 
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  25645		bla		2.49	16		4		4		4096
+# cached-writeback-unlimited
+# Nr. of intervals: 1, Interval: 0, 
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  13066		bla		4.89	16		4		4		4096
+# cached-writeback-limited
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  12952		bla		4.93	16		4		4		4096
+  12952		bla		4.93	16		4		4		4096
+# page-cache
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  86975		bla		732.06	16		4		4		4096
+  86975		bla		732.06	16		4		4		4096
+# cached-writethrough
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  14897		bla		4.29	16		4		4		4096
+  14897		bla		4.29	16		4		4		4096
+# For cached-writeback-vast
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  24855		bla		2.52	16		4		4		4096
+  24855		bla		2.52	16		4		4		4096
+# For cached-writeback-unlimited
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+ 14004		bla		4,56	16		4		4		4096
+ 14004		bla		4,56	16		4		4		4096
+# For cached-writeback-limited
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  23975		bla		2.6	16		4		4		4096
+  23975		bla		2.6	16		4		4		4096
+# For page-cache
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  93635		bla		0.683	16		4		4		4096
+  93635		bla		0.683	16		4		4		4096
+# For cached-writethrough
+# Bandwidth (MB/s)	IOPS	Latency (usec)	Iodepth	Block size (KB)	Object size (MB)	Total size (MB)
+  6610		bla		9.66	16		4		4		4096
+  6610		bla		9.66	16		4		4		4096
