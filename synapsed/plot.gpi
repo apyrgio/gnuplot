@@ -39,7 +39,7 @@ sosd_lat_write_line(x) = `awk 'NR == 4 {print $3}' data/sosd/report-bench-write1
 #set logscale y
 plot report("cached", "write", 1) using 1:2:xtic(1) \
 	with linespoints title "cached-vast", \
-	report("cached", "write", 2) using 1:2:xtic(1) \
+	report("cached", "write", 2) using 1:2 \
 	with linespoints title "cached-unlimited", \
 	report("cached", "write", 3) using 1:2 \
 	with linespoints title "cached-limited", \
@@ -48,14 +48,15 @@ plot report("cached", "write", 1) using 1:2:xtic(1) \
 	sosd_bw_write_line(x) with line title "sosd"
 
 set ylabel "Latency (μs)"
-exit
 
 set output "lat-write-".out
 
 plot report("cached", "write", 1) using 1:4:xtic(1) \
-	with linespoints title "cached-unlimited", \
+	with linespoints title "cached-vast", \
 	report("cached", "write", 2) using 1:4 \
-	with linespoints title "cached-limited", \
+	with linespoints title "cached-unlimited", \
 	report("cached", "write", 3) using 1:4 \
+	with linespoints title "cached-limited", \
+	report("cached", "write", 4) using 1:4 \
 	with linespoints title "cached-writethrough", \
 	sosd_lat_write_line(x) with line title "sosd"
