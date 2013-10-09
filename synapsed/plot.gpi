@@ -30,6 +30,7 @@ set xlabel "Workload percentage (%)"
 
 # save file as "<current dir>.pdf"
 set output "bw-write-".out
+set key right center
 
 # Argghh! Can't you be more automated? I will pour death and rage over each of
 # your stupid overfilled lines
@@ -50,6 +51,8 @@ plot report("cached", "write", 1) using 1:2:xtic(1) \
 set ylabel "Latency (μs)"
 
 set output "lat-write-".out
+set key right top
+set yrange [0:10000]
 
 plot report("cached", "write", 1) using 1:4:xtic(1) \
 	with linespoints title "cached-vast", \
