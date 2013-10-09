@@ -50,6 +50,7 @@ plot report("cached", "write", 1) using 1:2:xtic(1) \
 set ylabel "Latency (μs)"
 
 set output "lat-write-".out
+set key right bottom
 
 plot report("cached", "write", 1) using 1:4:xtic(1) \
 	with linespoints title "cached-unlimited", \
