@@ -26,6 +26,8 @@ xlabel = "Block size (KB)"
 
 # save file as "<current dir>.pdf"
 set output "bw-write-".out
+set key right top
+set yrange [0:400]
 
 load "../broken1.gpi"
 
@@ -34,6 +36,9 @@ plot for [i = 1:4] report("sosd", "write", i) using 5:1:xtic(5) \
 
 load "../broken2.gpi"
 
+set key right center
+set yrange [600:10000]
+
 plot for [i = 1:4] report("cached", "write", i) using 5:1:xtic(5) \
 	with linespoints title graph_title("cached", i)
 
@@ -41,12 +46,18 @@ load "../broken3.gpi"
 
 set output "bw-read-".out
 
+set key right top
+set yrange [0:795]
+
 load "../broken1.gpi"
 
 plot for [i = 1:4] report("sosd", "read", i) using 5:1:xtic(5) \
 	with linespoints title graph_title("sosd", i)
 
 load "../broken2.gpi"
+
+set key right center
+set yrange [0:11000]
 
 plot for [i = 1:4] report("cached", "read", i) using 5:1:xtic(5) \
 	with linespoints title graph_title("cached", i)
@@ -58,10 +69,15 @@ set output "lat-write-".out
 
 load "../broken1.gpi"
 
+set key left top
+set yrange [0:110]
+
 plot for [i = 1:4] report("cached", "write", i) using 5:3:xtic(5) \
 	with linespoints title graph_title("cached", i)
 
 load "../broken2.gpi"
+set key right top
+set yrange [3500:6000]
 
 plot for [i = 1:4] report("sosd", "write", i) using 5:3:xtic(5) \
 	with linespoints title graph_title("sosd", i)
@@ -71,10 +87,15 @@ set output "lat-read-".out
 
 load "../broken1.gpi"
 
+set key left top
+set yrange [0:120]
+
 plot for [i = 1:4] report("cached", "read", i) using 5:3:xtic(5) \
 	with linespoints title graph_title("cached", i)
 
 load "../broken2.gpi"
 
+set key right top
+set yrange [1000:4400]
 plot for [i = 1:4] report("sosd", "read", i) using 5:3:xtic(5) \
 	with linespoints title graph_title("sosd", i)
