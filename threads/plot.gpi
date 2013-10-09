@@ -22,10 +22,14 @@ set samples 1001
 set grid y
 
 set ylabel "Bandwidth (MB/s)"
-set xlabel "Parallel requests"
+set xlabel "Number of parallel requests"
 
 # save file as "<current dir>.pdf"
 set output "bw-write-".out
+set yrange [200:3500]
+#set yrange [-400:2180]
+#set key right bottom
+
 
 plot for [i in "1 2 3 4 5 8 16"] report("cached", "write", i) using 4:1:xtic(4) \
 	with linespoints title graph_title("cached", i)
@@ -33,6 +37,8 @@ plot for [i in "1 2 3 4 5 8 16"] report("cached", "write", i) using 4:1:xtic(4) 
 set ylabel "Latency (μs)"
 
 set output "lat-write-".out
+set key left top
+set yrange [*:*]
 
 plot for [i in "1 2 3 4 5 8 16"] report("cached", "write", i) using 4:3:xtic(4) \
 	with linespoints title graph_title("cached", i)
