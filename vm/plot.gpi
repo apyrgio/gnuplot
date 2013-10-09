@@ -41,7 +41,6 @@ plot report("cached", "write", 42) using 1 title "page-cache", \
 
 set output "lat-".out
 set ylabel "Latency (ms)"
-set xlabel "Number of objects"
 
 plot report("cached", "write", 42) using 3 title "page-cache", \
 	report("sosd", "write", 12) using 3 title "sosd", \
